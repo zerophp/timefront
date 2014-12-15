@@ -1,0 +1,13 @@
+<?php
+
+$config = array(
+	'database'=>array(
+        'user'=>'username',
+        'password'=>'password',
+        'host'=>'host',
+        'database'=>'database'
+    ),
+    'layout'=>'dashboard',
+    'default_controller'=>'Controller',
+    'default_action'=>'action',
+);
