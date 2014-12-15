@@ -34,10 +34,20 @@ class Application
     public static function dispatch()
     {                     
         ob_start();
+        
             $controllerName = "Application\\Controllers\\".self::$request['controller'];
             $controller = new $controllerName(self::$config);
             $actionName = self::$request['action'];
-            $controller -> $actionName();
+            
+            if(method_exists($controllerName, $actionName))
+            {
+               $controller -> $actionName(); 
+            } 
+            else 
+            {
+                $controller = new Error();
+                $controller -> error_405();
+            }
 
         $view = ob_get_contents();
         ob_end_clean();
