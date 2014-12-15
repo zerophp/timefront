@@ -31,7 +31,7 @@ class Application
             $controllerName = "Application\\controllers\\".self::$request['controller'];
             $controller = new $controllerName(self::$config);
             $actionName = self::$request['action'];
-            $controller -> $actionName();
+            $controller -> $actionName(self::$request['params']);
 
         $view=ob_get_contents();
         ob_end_clean();
