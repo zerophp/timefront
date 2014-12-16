@@ -1,5 +1,4 @@
 <?php
-// Global modules configuration settings on $config variable
 $config = array(
     'modules'=>array(
         //'Core',
@@ -9,3 +8,4 @@ $config = array(
         //'Door'
     )
 );
+
