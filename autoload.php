@@ -1,5 +1,5 @@
 <?php
- 
+
 function __autoload($class)
 {
     $class = explode("\\", $class);
@@ -15,5 +15,4 @@ function __autoload($class)
     $path.=$file.".php";
     
     include "../modules/".$module."/src/".$path;    
-
 }
