@@ -3,7 +3,7 @@ namespace Application\Controllers;
 
 class Index
 {
-    public $layout = 'index.phtml';
+    public $layout = 'timeline.phtml';
     
     public function index()
     {
