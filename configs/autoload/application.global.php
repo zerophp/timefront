@@ -1,13 +1,14 @@
 <?php
-
 $config = array(
 	'database'=>array(
         'user'=>'username',
         'password'=>'password',
-        'host'=>'localhost',
-        'database'=>'database',
+        'host'=>'localhost',      
+        'database'=>'timeline_db'
     ),
-    'layout'=>'dashboard',
-    'default_controller'=>'Index',
-    'default_action'=>'index',
+    'repository'=>'db|txt|gd',
+    'layout'=>'timeline',
+    'default_controller'=>'timeline',
+    'default_action'=>'display'
+
 );
