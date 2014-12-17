@@ -1,35 +1,28 @@
 <!-- BEGIN Timeline Embed -->
-      <div id="timeline-embed"></div>
-      <script type="text/javascript">
-      var urlAPI = "http://api.servotal.com/albums";
-      
-        var timeline_config = {
-         width: "100%",
-         height: "100%",         
-         source: $.getJSON( urlAPI, {
-     	    format: "json"
-    	  })
-        }
-      </script>
-      <script type="text/javascript" src="/build/js/storyjs-embed.js"></script>
-      <!-- END Timeline Embed-->
-      
-      
       <div id="images"></div>
-      <script>
-(function() {
-  var flickerAPI = "http://api.servotal.com/albums";
-  $.getJSON( flickerAPI)
-    .done(function( data ) {
-      $.each( data.items, function( i, item ) {
-        $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-        if ( i === 3 ) {
-          return false;
-        }
-      });
-    });
-})();
-</script>
-      
-      
-      
+      <script type="text/javascript">
+      var urlAPI = "<?=$urlAPI?>";
+      $.getJSON( urlAPI, function( data ) {
+    	  var items = [];    	  
+    	  $.each( data, function( key, val ) {
+    		items.push( "<ul id='" + val.id + "'>");
+        	    items.push( "<li id='" + val.id + "'>" + val.id + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.startdate + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.enddate + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.headline + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.text + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.media + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.mediacredit + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.mediacaption + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.mediathumbnail + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.type + "</li>" );
+        	    items.push( "<li id='" + val.id + "'>" + val.tag + "</li>" );
+    	    items.push( "</ul>");
+    	  });
+    	 
+    	  $( "<div/>", {
+    	    "class": "my-new-list",
+    	    html: items.join( "" )
+    	  }).appendTo( "body" );
+    	});
+</script>    

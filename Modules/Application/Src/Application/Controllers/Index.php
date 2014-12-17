@@ -7,6 +7,7 @@ class Index
     
     public function index()
     {
+        $urlAPI ='http://timeback.local/timeline';
         include ("../Modules/Application/Src/Application/Views/Index/index.phtml");
     } 
 }
