@@ -1,6 +1,6 @@
 <!-- BEGIN Timeline Embed -->
       <div id="images"></div>
-      <script type="text/javascript">
+<script type="text/javascript">
       var urlAPI = "<?=$urlAPI?>";
       $.getJSON( urlAPI, function( data ) {
     	  var items = [];    	  
@@ -25,4 +25,24 @@
     	    html: items.join( "" )
     	  }).appendTo( "body" );
     	});
-</script>    
+</script> 
+
+
+<!-- BEGIN Timeline Embed -->
+      <div id="timeline-embed"></div>
+      <script type="text/javascript">
+      
+       var cc = $.getJSON('http://timeback.local/timeline');
+       var myObject = JSON.stringify(cc);
+
+       alert(myObject); 
+  	  
+       alert (cc.timeline)
+        var timeline_config = {
+         width: "100%",
+         height: "100%",
+         source: cc
+        }
+      </script>
+      <script type="text/javascript" src="/build/js/storyjs-embed.js"></script>
+      <!-- END Timeline Embed-->
